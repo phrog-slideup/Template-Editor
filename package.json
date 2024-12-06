@@ -1,0 +1,12 @@
+{
+  "name": "template-editor",
+  "version": "1.0.0",
+  "description": "A Node.js library for editing PowerPoint (PPTX) files as templates. It allows users to convert PPTX files into editable HTML formats and then seamlessly transform the edited HTML back into PPTX files.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Namdev",
+  "license": "ISC"
+}
