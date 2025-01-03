@@ -1,0 +1,305 @@
+/* Base CSS Variables */
+:root {
+    --fg-color: #000000; /* Default foreground color */
+    --bg-color: #FFFFFF; /* Default background color */
+  }
+  
+  /* Percentage Patterns */
+  .pattern-pct5 {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 5%,
+      var(--bg-color) 5%,
+      var(--bg-color) 10%
+    );
+  }
+  
+  .pattern-pct10 {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 10%,
+      var(--bg-color) 10%,
+      var(--bg-color) 20%
+    );
+  }
+  
+  .pattern-pct20 {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 20%,
+      var(--bg-color) 20%,
+      var(--bg-color) 40%
+    );
+  }
+  
+  .pattern-pct25 {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 25%,
+      var(--bg-color) 25%,
+      var(--bg-color) 50%
+    );
+  }
+  
+  .pattern-pct30 {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 30%,
+      var(--bg-color) 30%,
+      var(--bg-color) 60%
+    );
+  }
+  
+  .pattern-pct40 {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 40%,
+      var(--bg-color) 40%,
+      var(--bg-color) 80%
+    );
+  }
+  
+  .pattern-pct50 {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 50%,
+      var(--bg-color) 50%,
+      var(--bg-color) 100%
+    );
+  }
+  
+  /* Line-Based Patterns */
+  .pattern-horz-stripe {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 10%,
+      var(--bg-color) 10%,
+      var(--bg-color) 20%
+    );
+  }
+  
+  .pattern-thin-horz-stripe {
+    background-image: repeating-linear-gradient(
+      0deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 5%,
+      var(--bg-color) 5%,
+      var(--bg-color) 10%
+    );
+  }
+  
+  .pattern-vert-stripe {
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 10%,
+      var(--bg-color) 10%,
+      var(--bg-color) 20%
+    );
+  }
+  
+  .pattern-thin-vert-stripe {
+    background-image: repeating-linear-gradient(
+      90deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 5%,
+      var(--bg-color) 5%,
+      var(--bg-color) 10%
+    );
+  }
+  
+  .pattern-diag-stripe {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 10%,
+      var(--bg-color) 10%,
+      var(--bg-color) 20%
+    );
+  }
+  
+  .pattern-thin-diag-stripe {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 5%,
+      var(--bg-color) 5%,
+      var(--bg-color) 10%
+    );
+  }
+  
+  .pattern-zigzag-lines {
+    background-image: repeating-linear-gradient(
+      45deg,
+      var(--fg-color) 0%,
+      var(--fg-color) 10%,
+      var(--bg-color) 10%,
+      var(--bg-color) 20%
+    );
+  }
+  
+  /* Grid Patterns */
+  .pattern-dk-grid {
+    background-image: repeating-linear-gradient(
+        0deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      );
+  }
+  
+  .pattern-lt-grid {
+    background-image: repeating-linear-gradient(
+        0deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 5%,
+        var(--bg-color) 5%,
+        var(--bg-color) 10%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 5%,
+        var(--bg-color) 5%,
+        var(--bg-color) 10%
+      );
+  }
+  
+  .pattern-square-grid {
+    background-image: repeating-linear-gradient(
+        0deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 20%,
+        var(--bg-color) 20%,
+        var(--bg-color) 40%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 20%,
+        var(--bg-color) 20%,
+        var(--bg-color) 40%
+      );
+  }
+  
+  .pattern-hexagonal-grid {
+    background-image: repeating-linear-gradient(
+        30deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      ),
+      repeating-linear-gradient(
+        -30deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      );
+  }
+  
+  .pattern-dotted-grid {
+    background-image: radial-gradient(
+      circle,
+      var(--fg-color) 1%,
+      var(--bg-color) 1%,
+      var(--bg-color) 100%
+    );
+  }
+  
+  /* Cross Patterns */
+  .pattern-dk-diag-cross {
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      );
+  }
+  
+  .pattern-lt-diag-cross {
+    background-image: repeating-linear-gradient(
+        45deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 5%,
+        var(--bg-color) 5%,
+        var(--bg-color) 10%
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 5%,
+        var(--bg-color) 5%,
+        var(--bg-color) 10%
+      );
+  }
+  
+  .pattern-solid-cross {
+    background-image: repeating-linear-gradient(
+        0deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      );
+  }
+  
+  /* Special Patterns */
+  .pattern-weave-pattern {
+    background-image: repeating-linear-gradient(
+        0deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      ),
+      repeating-linear-gradient(
+        90deg,
+        var(--fg-color) 0%,
+        var(--fg-color) 10%,
+        var(--bg-color) 10%,
+        var(--bg-color) 20%
+      );
+  }
+  
+  .pattern-wave-pattern {
+    background-image: repeating-radial-gradient(
+      circle,
+      var(--fg-color) 0%,
+      var(--bg-color) 50%,
+      var(--bg-color) 100%
+    );
+  }
+  

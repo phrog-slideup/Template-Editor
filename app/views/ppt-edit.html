@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PPTX Editor</title>
+    <style>
+      /* Styles omitted for brevity */
+    </style>
+  </head>
+  <body>
+    <div id="upload-container" style="text-align: center; margin-top: 20px">
+      <input type="file" id="pptxFile" accept=".pptx" />
+      <button id="uploadButton">Upload and Process</button>
+    </div>
+
+    <div id="slides-container"></div>
+
+    <div id="buttons-container">
+      <button id="downloadButton" disabled>Download HTML File</button>
+      <button id="saveButton" disabled>Save Changes</button>
+      <button id="convertButton" disabled>Convert to PPTX</button>
+    </div>
+
+    <script>
+      const uploadButton = document.getElementById("uploadButton");
+      const downloadButton = document.getElementById("downloadButton");
+      const saveButton = document.getElementById("saveButton");
+      const convertButton = document.getElementById("convertButton");
+      const slidesContainer = document.getElementById("slides-container");
+
+      // Upload and process the file
+      uploadButton.addEventListener("click", () => {
+        const fileInput = document.getElementById("pptxFile");
+        const file = fileInput.files[0];
+
+        if (!file) {
+          alert("Please select a file to upload.");
+          return;
+        }
+
+        const formData = new FormData();
+        formData.append("pptxFile", file);
+
+        fetch("/api/slides/upload", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.error) throw new Error(data.error);
+
+            // Fetch and display slides
+            fetchSlides();
+          })
+          .catch((err) => alert("Error uploading file: " + err.message));
+      });
+
+      // Fetch slides
+      function fetchSlides() {
+        fetch("/api/slides/getSlides")
+          .then((response) => response.json())
+          .then((slides) => {
+            slidesContainer.innerHTML = ""; // Clear previous slides
+            slides.forEach((slideHTML) => {
+              const slideElement = document.createElement("div");
+              slideElement.classList.add("slide");
+              slideElement.innerHTML = slideHTML;
+              slidesContainer.appendChild(slideElement);
+            });
+
+            // Enable buttons
+            downloadButton.disabled = false;
+            saveButton.disabled = false;
+            convertButton.disabled = false;
+
+            console.log("Slides fetched and rendered"); // Debugging log
+          })
+          .catch((err) => alert("Error fetching slides: " + err.message));
+      }
+
+      // Download HTML
+      downloadButton.addEventListener("click", () => {
+        window.location.href = "/api/slides/downloadHTML";
+      });
+
+      // Save changes
+      saveButton.addEventListener("click", () => {
+        const updatedHTML = slidesContainer.innerHTML;
+        console.log("Updated HTML:", updatedHTML); // Debugging
+        alert("Changes saved (demo only).");
+      });
+
+      // Convert to PPTX
+      convertButton.addEventListener("click", () => {
+        const updatedHTML = slidesContainer.innerHTML;
+
+        fetch("/api/slides/convertToPPTX", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ html: updatedHTML }),
+        })
+          .then((response) => response.blob())
+          .then((blob) => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "presentation.pptx";
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+          })
+          .catch((err) => alert("Error converting to PPTX: " + err.message));
+      });
+    </script>
+  </body>
+</html>
